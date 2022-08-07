@@ -3,3 +3,321 @@
 
 @import config
 @import 'blocks/**/*'
+
+.rideshareheader
+    padding: 60px 0
+    .logo
+        max-width: 350px
+        img
+            max-width: 100%
+    .headerinfo
+        display: flex
+        justify-content: space-between
+        align-items: center
+        height: 100%
+        p
+            margin-bottom: 0
+        a
+            text-decoration: none
+            color: $textcolor
+        span
+            color: $accent
+
+.ridesharefooter
+    padding: 75px 0
+    p
+        font-size: 13px
+    .logo
+        max-width: 310px
+        img
+            width: 100%
+    .footer-contact
+        padding: 0
+        font-size: 15px
+        margin: 0
+        list-style-type: none
+        text-align: right
+        li
+            margin-bottom: 20px
+            a
+                text-decoration: none
+                color: $textcolor
+            &.phone
+                img
+                    margin-right: 20px
+        h4
+            font-weight: bold
+            font-size: 15px
+            margin-bottom: 0
+
+.ridesharecontainer
+    padding: 50px
+    .main_buttons_group
+        max-width: 980px
+        margin: 0 auto 20px auto
+        text-align: center
+    .rs_information_cards
+        background: #FFFFFF
+        padding: 40px 0 40px 0
+        box-shadow: 1px 1px 2px rgba(170, 177, 204, 0.5), -1px -1px 2px #FFFFFF
+        border-radius: 20px
+        max-width: 980px
+        margin: 0 auto
+        
+        .topline_container
+            text-align: center
+        .rs_flex_container
+            display: flex
+            margin-top: 20px
+            justify-content: center
+            flex-wrap: wrap
+            .rs_flex_card
+                max-width: 205px
+                background: #F7FCF0
+                margin: 10px
+                border-radius: 10px
+                padding: 35px 10px
+                text-align: center
+                text-decoration: none
+                h2
+                    font-family: inter-bold, sans-serif
+                    font-size: 55px
+                    color: $accent
+                p
+                    letter-spacing: 0.06em
+                    text-transform: uppercase
+                    color: #413B3D
+                    line-height: 24px
+
+
+/* Buttons and misc */
+
+.rs_action_button
+    background: #FFFFFF
+    box-shadow: 1px 1px 2px rgba(170, 177, 204, 0.5), -1px -1px 2px #FFFFFF
+    border-radius: 10px
+    color: $accent
+    padding: 18px 41px
+    text-decoration: none
+    display: inline-block
+    margin: 0 10px
+    font-size: 15px
+    line-height: 1
+    &:hover, &:focus
+        color: $accent
+    &.active
+        background: $accent
+        color: #fff
+        box-shadow: none
+.rs_get_info_button
+    background: #FFFFFF
+    border: 1px solid rgba(0, 0, 0, 0.2)
+    border-radius: 4px
+    padding: 12px 20px 12px 35px
+    font-size: 15px
+    color: #324B07
+    text-decoration: none
+    display: inline-block
+    position: relative
+    line-height: 1
+    &:hover, &:focus
+        color: #324B07
+    &:active
+        color: #324B07
+    &::before
+        content: ''
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        left: 15px
+        width: 7px
+        height: 7px
+        border-radius: 10px
+        background-color: $accent
+/* end Buttons and misc */
+
+// mobile navigation
+#menu
+    z-index: 111
+    display: none
+
+#menu-bar
+    width: 30px
+    height: 40px
+    margin: 95px 20px 20px auto
+    cursor: pointer
+
+.bar
+    height: 2px
+    width: 100%
+    background-color: $accent
+    display: block
+    border-radius: 5px
+    transition: 0.3s ease
+
+#bar1
+    transform: translateY(-4px)
+
+#bar3
+    transform: translateY(4px)
+
+.nav_mobile
+    transition: 0.3s ease
+    display: none
+    text-align: right
+
+.nav_mobile ul
+    padding: 0 22px
+    display: block
+
+.nav_mobile ul li
+    list-style: none
+    padding: 12px 0
+    display: block
+
+.nav_mobile ul li a
+    color: $accent
+    font-size: 20px
+    text-decoration: none
+
+.nav_mobile li a:hover
+    font-weight: normal
+
+.menu-bg, #menu
+    top: 0
+    right: 15px
+    position: absolute
+
+.menu-bg
+    z-index: 1
+    width: 0
+    height: 0
+    margin: 30px 0 20px 20px
+    background: radial-gradient(circle, #fff, #fff)
+    transition: 0.3s ease
+
+.change
+    display: block
+
+.change .bar
+    background-color: $accent
+
+.change #bar1
+    transform: translateY(4px) rotateZ(-45deg)
+
+.change #bar2
+    opacity: 0
+
+.change #bar3
+    transform: translateY(-1px) rotateZ(45deg)
+
+.change-bg
+    width: 315px
+    height: 330px
+    z-index: 100
+    transform: translate(15px,-30px)
+    border-bottom-left-radius: 20px
+
+.dropdown
+    width: 100%
+    max-width: 220px
+    display: none
+    margin: 0 0 30px 0
+    background-color: transparent
+    
+    
+    &__switch:checked + &__options-filter &__select
+        transform: scaleY(1)
+    
+    &__switch:checked + &__options-filter &__filter:after
+        transform: rotate(-135deg)
+    
+    &__options-filter
+        width: 100%
+        cursor: pointer
+
+    &__filter
+        position: relative
+        display: flex
+        padding: 20px
+        background-color: #fff
+        border: 1px solid #d6d6d6
+        border-radius: 10px
+        font-size: 14px
+        text-transform: uppercase
+        margin-bottom: 0
+        transition: .3s
+        
+        &:focus
+            border: 1px solid #918FF4
+            outline: none
+            box-shadow: 0 0 5px 3px #918FF4
+
+    &::after
+        position: absolute
+        top: 45%
+        right: 20px
+        content: ''
+        width: 10px
+        height: 10px
+        border-right: 2px solid #595959
+        border-bottom: 2px solid #595959
+        transform: rotate(45deg) translateX(-45%)
+        transition: .2s ease-in-out
+
+    &__select
+        position: absolute
+        top: 100%
+        left: 0
+        width: 100%
+        margin-top: 5px
+        overflow: hidden
+        box-shadow: 0 5px 10px 0 rgba(152, 152, 152, 0.6)
+        transform: scaleY(0)
+        transform-origin: top
+        font-weight: 300
+        transition: .2s ease-in-out
+
+    &__select-option 
+        padding: 20px
+        background-color: #fff
+        border-bottom: 1px solid #d6d6d6
+        transition: .3s
+
+    &:last-of-type
+        border-bottom: 0
+
+    &:hover
+        background-color: #f9f9f9
+
+
+
+@media (max-width: 1200px)
+
+@media (max-width: 992px)
+
+
+@media (max-width: 768px)
+    .dropdown
+        display: block
+    #menu
+        display: block
+    #menu-bar
+        margin: 70px 20px 20px auto
+    .rideshareheader .headerinfo
+        display: none
+    .ridesharefooter
+        .row.mobile_row_style
+            flex-direction: column-reverse
+        .footer-contact, p
+            text-align: center
+        .logo
+            margin: 20px auto 0 auto
+
+@media (max-width: 576px)
+
+@media (max-width: 425px)
+    .ridesharecontainer
+        padding: 20px
+        .rs_information_cards
+            padding: 20px
