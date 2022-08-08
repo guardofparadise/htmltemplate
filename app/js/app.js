@@ -3,6 +3,15 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+
+	document.querySelectorAll('.modal-toggle').forEach((item,idx) => {
+		item.addEventListener('click', function(e) {
+			e.preventDefault();
+			document.querySelector('.modal').classList.toggle("is-visible");
+		})
+	})
+
+
 	function menuOnClick() {
 		document.getElementById("menu-bar").classList.toggle("change");
 		document.getElementById("nav").classList.toggle("change");
@@ -36,3 +45,4 @@ document.addEventListener('DOMContentLoaded', () => {
 	})
 
 })
+
