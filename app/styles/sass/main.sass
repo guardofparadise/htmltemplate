@@ -179,7 +179,7 @@ a.bright_cta
     &.active
         background: $accent
         color: #fff
-        box-shadow: none
+        box-shadow: 1px 1px 2px rgb(170 177 204 / 50%)
 .rs_get_info_button
     background: #FFFFFF
     border: 1px solid rgba(0, 0, 0, 0.2)
@@ -291,6 +291,7 @@ a.bright_cta
 
 .dropdown
     width: 100%
+    position: relative
     max-width: 220px
     display: none
     margin: 0 0 30px 0
@@ -341,6 +342,7 @@ a.bright_cta
         border-bottom: 2px solid #595959
         transform: rotate(45deg) translateX(-45%)
         transition: .2s ease-in-out
+        display: none
 
     &__select
         position: absolute
@@ -612,6 +614,7 @@ a.bright_cta
             transform: rotate(90deg) scale(1.5)
     .flex_container
         display: flex
+        flex-wrap: wrap
         .rs_custom_input
             flex: 1
             display: flex
