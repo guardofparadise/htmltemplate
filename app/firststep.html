@@ -1,0 +1,124 @@
+<!--#set var="title" value="Rideshare" -->
+<!--#include virtual="/parts/header.html" -->
+
+<section class="steps location">
+    <div class="steps_wrapper">
+        <div class="step_icons_wrapper">
+            <div class="step_icon active">
+                <img src="./images/src/pin.svg" alt="pin">
+            </div>
+            <div class="step_icon">
+                <img src="./images/src/Gear.svg" alt="calendar">
+            </div>
+            <div class="step_icon">
+                <img src="./images/src/CalendarCheck.svg" alt="check">
+            </div>
+            <div class="step_icon">
+                <img src="./images/src/CheckSquare.svg" alt="check">
+            </div>
+        </div>
+
+        <!-- Copied from current website -->
+        <form action="https://thetestwarehouse.com/NewOrders/CheckAvailability" method="post">
+            
+            <h1 class="rs_flow_title">Let’s get started!</h1>
+            <input data-val="true" data-val-required="The ProductAvailabilityId field is required." id="ProductAvailabilityId" name="ProductAvailabilityId" type="hidden" value="0" />
+            <div class="form-group">
+                <label class="control-label w-100 rs_flow_label" for="DeliveryAddressLocation">Example <i>("11222 Dilling St, Los Angeles, CA")</i></label><br>
+                <input class="form-control w-100 location_input" type="text" id="DeliveryAddressLocation" name="DeliveryAddressLocation" value="" />
+                <span class="text-danger field-validation-valid" data-valmsg-for="DeliveryAddressLocation" data-valmsg-replace="true"></span>
+            </div>
+            <input type="hidden" id="street_number" readonly name="DeliveryAddressStreetNumber" value="" />
+            <span class="text-danger field-validation-valid" data-valmsg-for="DeliveryAddressStreetNumber" data-valmsg-replace="true"></span>
+            <input type="hidden" id="route" readonly name="DeliveryAddressStreet1" value="" />
+            <span class="text-danger field-validation-valid" data-valmsg-for="DeliveryAddressStreet1" data-valmsg-replace="true"></span>
+            <input type="hidden" id="locality" readonly name="DeliveryAddressCity" value="" />
+            <span class="text-danger field-validation-valid" data-valmsg-for="DeliveryAddressCity" data-valmsg-replace="true"></span>
+            <input type="hidden" id="administrative_area_level_1" readonly name="DeliveryAddressStateCode" value="" />
+            <span class="text-danger field-validation-valid" data-valmsg-for="DeliveryAddressStateCode" data-valmsg-replace="true"></span>
+            <input type="hidden" id="postal_code" readonly name="DeliveryAddressZipCode" value="" />
+            <span class="text-danger field-validation-valid" data-valmsg-for="DeliveryAddressZipCode" data-valmsg-replace="true"></span>
+            <input type="hidden" readonly data-val="true" data-val-number="The field DeliveryAddressLatitude must be a number." data-val-required="The DeliveryAddressLatitude field is required." id="DeliveryAddressLatitude" name="DeliveryAddressLatitude" value="0" />
+            <span class="text-danger field-validation-valid" data-valmsg-for="DeliveryAddressLatitude" data-valmsg-replace="true"></span>
+            <input type="hidden" readonly data-val="true" data-val-number="The field DeliveryAddressLongitude must be a number." data-val-required="The DeliveryAddressLongitude field is required." id="DeliveryAddressLongitude" name="DeliveryAddressLongitude" value="0" />
+            <span class="text-danger field-validation-valid" data-valmsg-for="DeliveryAddressLongitude" data-valmsg-replace="true"></span>
+            <p class="address-results">
+                <span id="displayTitle">Your Address:</span><br />
+                <span id="displayStreetNumber"></span>&nbsp;<span id="displayStreet1"></span><br />
+                <input placeholder="Apt#, Suite, etc" type="text" id="DeliveryAddressStreet2" name="DeliveryAddressStreet2" value="" /><br />
+                <span id="displayCity"></span>,&nbsp;<span id="displayState"></span>&nbsp;&nbsp;<span id="displayZipCode"></span><br />
+                Location:&nbsp;<span id="displayLatitude"></span>,&nbsp;<span id="displayLongitude"></span>
+            </p><br />
+                <div class="form-group">
+                    <input type="submit" value="Check Availability" class="cta cta_blue" id="submit-button" disabled />
+                </div>
+        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Behr6mm8PxHs7tqulktC37rr2W-wnzkJfTaUXgwKEIrSDi89fBYaS005IvjLDWApAlsxdQSDgxe9Jven14xSgRy_h5DwRq21NKPZsRTZmZ0KH--8TQeelVfa_-7SDk_dSDXl3w1p5fi_kzFGWbuC4g" />
+    </form>
+
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAB8aiqlH9ENDlFrMXWYf5pXhpZpvznCjw"></script>
+        <script type="text/javascript">
+            const componentForm = {
+                street_number: "short_name",
+                route: "long_name",
+                locality: "long_name",
+                administrative_area_level_1: "short_name",
+                postal_code: "short_name",
+            };
+            google.maps.event.addDomListener(window, 'load', function () {
+                var places = new google.maps.places.Autocomplete(document.getElementById('DeliveryAddressLocation'));
+                google.maps.event.addListener(places, 'place_changed', function () {
+                    $('#submit-button').attr("disabled", true);
+                    //$('#submit-button').removeClass('cta_red');
+                    $('.address-results').hide();
+                    $('#street_number').val('');
+                    $('#route').val('');
+                    $('#locality').val('');
+                    $('#administrative_area_level_1').val('');
+                    $('#postal_code').val('');
+                    $('#DeliveryAddressLatitude').val('');
+                    $('#DeliveryAddressLongitude').val('');
+                    var place = places.getPlace();
+                    document.getElementById('DeliveryAddressLocation').value = place.formatted_address;
+                    document.getElementById('DeliveryAddressLatitude').value = place.geometry.location.lat();
+                    document.getElementById('DeliveryAddressLongitude').value = place.geometry.location.lng();
+                    for (const component of place.address_components) {
+                        const addressType = component.types[0];
+
+                        if (componentForm[addressType]) {
+                            const val = component[componentForm[addressType]];
+                            document.getElementById(addressType).value = val;
+                        }
+                    }
+                    $('#displayStreetNumber').html($('#street_number').val());
+                    $('#displayStreet1').html($('#route').val());
+                    $('#displayCity').html($('#locality').val());
+                    $('#displayState').html($('#administrative_area_level_1').val());
+                    $('#displayZipCode').html($('#postal_code').val());
+                    $('#displayLatitude').html($('#DeliveryAddressLatitude').val());
+                    $('#displayLongitude').html($('#DeliveryAddressLongitude').val());
+                    if ($('#DeliveryAddressLatitude').val() != null && $('#DeliveryAddressLatitude').val() != "" && $('#route').val() != null && $('#route').val() != "") {
+                        $('.address-results').show();
+                        $('#submit-button').attr("disabled", false);
+                        //$('#submit-button').addClass('cta_red');
+                    }
+                    $('#submit-button').on('click', function() {
+                        
+                            localStorage.setItem('displayStreetNumber', $('#displayStreetNumber').text()),
+                            localStorage.setItem('displayStreet1', $('#displayStreet1').text()),
+                            localStorage.setItem('displayCity', $('#displayCity').text()),
+                            localStorage.setItem('displayState', $('#displayState').text()),
+                            localStorage.setItem('displayZipCode', $('#displayZipCode').text()),
+                            localStorage.setItem('DeliveryAddressStreet2', $('#DeliveryAddressStreet2').val())
+                        
+                        
+                    })
+                });
+
+            });
+        </script>
+        <!-- End copied from current website -->
+
+    </div>
+</section>
+
+<!--#include virtual="/parts/footer.html" -->
