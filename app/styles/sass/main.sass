@@ -680,6 +680,7 @@ a.bright_cta
 
 .appointment_data_table
     display: flex
+    flex-wrap: wrap
     padding: 24px 40px
     margin-bottom: 20px
     background: #F7F7F7
@@ -687,6 +688,19 @@ a.bright_cta
     align-items: center
     > *
         flex: 1
+        position: relative
+        &::before
+            display: none
+            content: ''
+            position: absolute
+            top: 7px
+            right: 17px
+            height: 12px
+            width: 2px
+            background-color: #413B3D
+        &:last-child
+            &::before
+                display: none
     .tableimages
         display: inline-block
         img:first-child
@@ -700,6 +714,7 @@ a.bright_cta
     display: flex
     justify-content: space-between
     align-items: center
+    flex-wrap: wrap
     .rs_get_info_button
         padding: 12px 20px
         color: #324B07
@@ -778,6 +793,12 @@ section.steps
 @media (max-width: 1200px)
 
 @media (max-width: 1040px)
+    .appointment_data_table > *
+        min-width: 400px
+        padding: 15px 0
+        border-bottom: 1px solid rgba(108,171,0,.2)
+        &:last-child
+            border-bottom: none
     .account_info_table_data
         &.long_data_row
             .rs_custom_input
@@ -792,6 +813,8 @@ section.steps
             margin-right: 20px
 
 @media (max-width: 992px)
+    .popup_services_wrap
+        justify-content: center
     .account_info_table_data
         &.long_data_row
             .rs_custom_input
@@ -800,6 +823,21 @@ section.steps
             max-width: 45%
 
 @media (max-width: 768px)
+    .myinspections_tables_wrapper
+        .table_info
+            .table_row
+                padding: 0
+                border-bottom: none
+                flex-wrap: wrap
+                &:last-child
+                    .info_wrap
+                        &:last-child
+                            border-bottom: none
+                .info_wrap
+                    border-bottom: 1px solid rgba(108,171,0,.2)
+                    min-width: 230px
+                    padding: 18px 0
+                        
     .inspections_list .inspections_cards_wrapper
         .inspection_card
             margin-bottom: 20px
@@ -824,8 +862,20 @@ section.steps
             margin: 20px auto 0 auto
 
 @media (max-width: 650px)
+    .appointment_data_table
+        padding: 24px
+    .appointment_data_table
+        display: block
+    .appointment_data_table>*
+        width: 100%
+        min-width: unset
+    .appointments_btns
+        flex-direction: column
+        align-items: flex-start
+        a.appointments_cta
+            margin-bottom: 20px
     .myinspections_tables_wrapper
-        padding: 0 20px
+        padding: 15px
     .account_info_table_data
         &.long_data_row
             .rs_custom_input
@@ -835,6 +885,8 @@ section.steps
             max-width: 100%
 
 @media (max-width: 576px)
+    .rs_information_cards.myappointments_page
+        padding: 20px
     .rs_information_cards.account_info_desktop
         padding: 40px 15px
     .account_info_actions
@@ -844,8 +896,16 @@ section.steps
         .text_link
             padding-left: 0
             padding-top: 40px
+    .myinspections_tables_wrapper .table_head, .myinspections_tables_wrapper .table_info.showcase_info, .myinspections_tables_wrapper .table_preview_data
+        padding: 15px
 
 @media (max-width: 425px)
+    .appointment_data_table
+        padding: 18px
+    .myinspections_tables_wrapper
+        padding: 0
+    .myinspections_tables_wrapper .table_head, .myinspections_tables_wrapper .table_info.showcase_info, .myinspections_tables_wrapper .table_preview_data
+        padding: 15px 5px
     .ridesharecontainer
         padding: 20px
         .rs_information_cards
