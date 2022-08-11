@@ -4,6 +4,14 @@
 document.addEventListener('DOMContentLoaded', () => {
 
 
+	document.querySelector('.table_preview_data').addEventListener('click', function(e) {
+		e.preventDefault();
+		this.classList.toggle('rotate_arrow');
+		document.querySelector('.table_info').classList.toggle('showcase_info');
+		document.querySelector('.inspections_list').classList.toggle('showcase_info');
+	})
+
+
 	document.querySelectorAll('.modal-toggle').forEach((item,idx) => {
 		item.addEventListener('click', function(e) {
 			e.preventDefault();

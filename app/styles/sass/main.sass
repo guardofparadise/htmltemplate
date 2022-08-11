@@ -95,6 +95,11 @@
 .buttons_group
     display: flex
     justify-content: space-between
+    .card_button_download
+        min-width: 45px
+        display: flex
+        align-items: center
+        justify-content: center
     .card_button_special
         max-width: unset
         flex: 4
@@ -388,6 +393,10 @@ a.bright_cta
             right: 12px
             top: 24px
             width: 10px
+            transition: transform .45s ease
+        &.rotate_arrow
+            &::before
+                transform: rotate(180deg)
     .table_head, .table_preview_data
         padding: 15px 35px
         border-radius: 10px
@@ -396,11 +405,21 @@ a.bright_cta
         > div 
             flex: 1
     .table_info
-        margin-top: 20px
         background: #F7F7F7
         border-radius: 10px
-        padding: 15px 35px
-        margin-bottom: 40px
+        opacity: 0
+        visibility: hidden
+        height: 0
+        transition: transform .45s ease, height .45s ease, opacity .45s ease
+        transform: translateY(-50px)
+        &.showcase_info
+            margin-top: 20px
+            transform: translateY(0px)
+            padding: 15px 35px
+            margin-bottom: 40px
+            opacity: 1
+            visibility: visible
+            height: auto
         .table_row
             display: flex
             border-bottom: 1px solid rgba(108, 171, 0, 0.2)
@@ -412,6 +431,16 @@ a.bright_cta
 
 
 .inspections_list
+    opacity: 0
+    visibility: hidden
+    height: 0
+    transition: all .45s ease
+    transform: translateY(-50px)
+    &.showcase_info
+        transform: translateY(0px)
+        opacity: 1
+        visibility: visible
+        height: auto
     h4
         color: #413B3D
         padding-left: 35px
@@ -591,13 +620,29 @@ a.bright_cta
 
 .account_info_table_data
     display: flex
-    background: #F7FCF0
-    border-radius: 7px
-    padding: 18px 0
     margin-bottom: 30px
+    flex-wrap: wrap
+    justify-content: space-between
+    &.long_data_row
+        .rs_custom_input
+            max-width: 280px
     span
         flex: 1
         padding-left: 20px
+    .rs_custom_input
+        flex: 1
+        max-width: 420px
+        display: flex
+        flex-direction: column-reverse
+        label
+            margin-bottom: 15px
+
+        input
+            max-width: 100%
+            background: #F7FCF0
+            border-radius: 7px
+            padding: 18px 24px
+            border: none
 
 .account_info_actions
     padding-top: 15px
@@ -732,10 +777,34 @@ section.steps
 
 @media (max-width: 1200px)
 
-@media (max-width: 992px)
+@media (max-width: 1040px)
+    .account_info_table_data
+        &.long_data_row
+            .rs_custom_input
+                max-width: 250px
+        .rs_custom_input
+            max-width: 370px
 
+    .inspections_list .inspections_cards_wrapper
+        justify-content: flex-start
+        .inspection_card
+            margin-bottom: 20px
+            margin-right: 20px
+
+@media (max-width: 992px)
+    .account_info_table_data
+        &.long_data_row
+            .rs_custom_input
+                max-width: 30%
+        .rs_custom_input
+            max-width: 45%
 
 @media (max-width: 768px)
+    .inspections_list .inspections_cards_wrapper
+        .inspection_card
+            margin-bottom: 20px
+            margin-right: 0
+            max-width: unset
     .ridesharecontainer .main_buttons_group
         display: none
     .dropdown
@@ -754,7 +823,27 @@ section.steps
         .logo
             margin: 20px auto 0 auto
 
+@media (max-width: 650px)
+    .myinspections_tables_wrapper
+        padding: 0 20px
+    .account_info_table_data
+        &.long_data_row
+            .rs_custom_input
+                max-width: 100%
+        .rs_custom_input
+            margin-bottom: 25px
+            max-width: 100%
+
 @media (max-width: 576px)
+    .rs_information_cards.account_info_desktop
+        padding: 40px 15px
+    .account_info_actions
+        display: flex
+        flex-direction: column
+        align-items: center
+        .text_link
+            padding-left: 0
+            padding-top: 40px
 
 @media (max-width: 425px)
     .ridesharecontainer
