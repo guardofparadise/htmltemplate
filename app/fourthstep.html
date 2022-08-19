@@ -1,0 +1,135 @@
+<!--#set var="title" value="Rideshare" -->
+<!--#include virtual="/parts/header.html" -->
+
+<section class="steps location">
+    <div class="steps_wrapper ">
+        <div class="step_icons_wrapper">
+            <div class="step_icon">
+                <img src="./images/src/pininactive.svg" alt="pin">
+            </div>
+            <div class="step_icon ">
+                <img src="./images/src/Gear.svg" alt="calendar">
+            </div>
+            <div class="step_icon">
+                <img src="./images/src/CalendarCheck.svg" alt="check">
+            </div>
+            <div class="step_icon active">
+                <img src="./images/src/CheckSquare copy.svg" alt="check">
+            </div>
+        </div>
+
+        <h3 class="coordinate_nurse_title">
+            Please enter your home address
+        </h3>
+        <form class="data_form" action="/Home/EditOrder/31916" method="post" novalidate="novalidate">
+            <input data-val="true" data-val-required="The OrderId field is required." id="OrderId" name="OrderId" type="hidden" value="31916">
+            <input data-val="true" data-val-required="The ProductAvailabilityId field is required." id="ProductAvailabilityId" name="ProductAvailabilityId" type="hidden" value="0">
+            <input data-val="true" data-val-number="The field Price must be a number." data-val-required="The Price field is required." id="Price" name="Price" type="hidden" value="39.99">
+            <input data-val="true" data-val-number="The field AdditionalPrice must be a number." data-val-required="The AdditionalPrice field is required." id="AdditionalPrice" name="AdditionalPrice" type="hidden" value="0">
+            <input data-val="true" data-val-required="The Quantity field is required." id="Quantity" name="Quantity" type="hidden" value="1">
+            <input id="CategoryId" name="CategoryId" type="hidden" value="">
+            <input data-val="true" data-val-required="The IsReschedule field is required." id="IsReschedule" name="IsReschedule" type="hidden" value="False">
+
+            <div class="flex-container-group">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-7">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group mb-4">
+                                    <label for="fullName">First Name</label>
+                                    <input placeholder="Mark" type="text" id="FirstName" name="FirstName" value="">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span>
+                                <div data-lastpass-icon-root="true" style="position: relative !important; height: 0px !important; width: 0px !important; float: left !important;"></div></div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group mb-4">
+                                    <label for="fullName">Last Name</label>
+                                    <input placeholder="Twain" type="text" id="LastName" name="LastName" value="">
+                                    <span class="text-danger w-75 field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group mb-4">
+                                    <label for="fullName">Address</label>
+                                    <input type="text" placeholder="1234 Green Street" id="DeliveryAddressStreet" name="DeliveryAddressStreet" value="">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="DeliveryAddressStreet" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group mb-4">
+                                    <label class="green-tick-no" for="address_two">Address Line 2 (optional)</label>
+                                    <input type="text" placeholder="Apt 2, 2nd floor" id="DeliveryAddress_Street2" name="DeliveryAddress.Street2" value="">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="DeliveryAddress.Street2" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group mb-4">
+                                    <label for="city">City</label>
+                                    <input type="text" placeholder="New York" id="DeliveryAddress_City" name="DeliveryAddress.City" value="Los Angeles">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="DeliveryAddress.City" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                                <div class="form-group mb-4">
+                                    <label for="zipcode">ZIP Code</label>
+                                    <input type="text" placeholder="XXXXX" id="DeliveryAddress_ZipCode" name="DeliveryAddress.ZipCode" value="90011">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="DeliveryAddress.ZipCode" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group mb-4">
+                                    <label for="state">State</label>
+                                    <input type="text" placeholder="New York" id="DeliveryAddress_StateCode" name="DeliveryAddress.StateCode" value="CA">
+                                    <span class="text-danger field-validation-valid" data-valmsg-for="DeliveryAddress.StateCode" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group mb-4">
+                                    <label for="phone_number">Phone Number</label>
+                                    <div class="row row-5 px-2">
+                                        <div class="col-3 col-sm-4 col-md-4 col-lg-3 plr-5">
+                                            <input class="w-100" autocomplete="off" readonly="readonly" type="text" value="+1" placeholder="+1" id="CountryCode" name="CountryCode">
+                                            <span class="text-danger  field-validation-valid" data-valmsg-for="CountryCode" data-valmsg-replace="true"></span>
+                                        </div>
+                                        <div class="col-9 col-sm-8 col-md-8 col-lg-9 plr-5">
+                                            <input class="w-100" type="number" placeholder="XXX-XXX-XXXX" data-val="true" data-val-phone="The Phone Number field is not a valid phone number." data-val-regex="Invalid phone number" data-val-regex-pattern="^([0-9]{10})$" id="PhoneNumber" name="PhoneNumber" value="">
+                                            <span class="text-danger field-validation-valid" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mb-4 email_input">
+                            <label for="email">Email</label>
+                            <input type="email" placeholder="mark.twain@gmail.com" data-val="true" data-val-email="The Email field is not a valid e-mail address." id="Email" name="Email" value="">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4 col-lg-5">
+                        <div class="order_part-content">
+                            <h4>
+                                Lyft<br>(Lyft Inspection) <br> <br>
+                                Total : $39.99  <br> <br>
+                                Scheduled Date : Friday, 19 August 2022 <br>
+                                Time : 09:00 AM   - 10:00 AM
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit_wrapper">
+                <input class="loader cta cta_green" type="submit" id="checkout-button" value="Confirm appointment">
+            </div>
+        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Jc_-qmiTkxJsDUwGAYXXbasmCVgJZTn97gA-K5bBN6PBHtnUN_95TxwUxiZGmInu9EDYMCwrfq9rFV6TadQFQUJLZKq9Pdo_cyMXed3RwFoVaM_nZ93NlJzMoMDCKyzFOdFB21ylCTHOKKWk8cFjiI"></form>
+    </div>
+</section>
+
+<!--#include virtual="/parts/footer.html" -->

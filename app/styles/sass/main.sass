@@ -25,6 +25,7 @@
 
 .ridesharefooter
     padding: 75px 0
+    background: #e5e5e5
     p
         font-size: 13px
     .logo
@@ -79,6 +80,8 @@
                 padding: 35px 10px
                 text-align: center
                 text-decoration: none
+                img 
+                    margin-bottom: 12px
                 h2
                     font-family: inter-bold, sans-serif
                     font-size: 55px
@@ -181,6 +184,7 @@ a.bright_cta
     line-height: 1
     &:hover, &:focus
         color: $accent
+        text-decoration: none
     &.active
         background: $accent
         color: #fff
@@ -197,6 +201,7 @@ a.bright_cta
     position: relative
     line-height: 1
     &:hover, &:focus
+        text-decoration: none
         color: #324B07
     &:active
         color: #324B07
@@ -260,15 +265,15 @@ a.bright_cta
     font-weight: normal
 
 .menu-bg, #menu
-    top: 0
-    right: 15px
-    position: absolute
+    top: 0!important
+    right: 15px!important
+    position: fixed!important
 
 .menu-bg
     z-index: 1
     width: 0
     height: 0
-    margin: 30px 0 20px 20px
+    margin: 30px 0 20px 20px!important
     background: radial-gradient(circle, #fff, #fff)
     transition: 0.3s ease
 
@@ -738,18 +743,19 @@ section.steps
         display: none
     .steps_wrapper
         background: #ffffff
-        padding: 60px 20px
+        padding: 60px
         text-align: center
         max-width: 920px
         width: 100%
         border-radius: 26px
+        box-shadow: 1px 1px 2px rgba(170, 177, 204, 0.5), -1px -1px 2px #FFFFFF
         margin: 0 auto
         &.successful
             padding: 60px 50px
         h1
             font-size: 40px
             color: #1D2A49
-            font-family: sans-semibold, sans-serif
+            font-family: inter-medium, sans-serif
         .step_icons_wrapper
             display: flex
             align-items: center
@@ -757,6 +763,7 @@ section.steps
             min-height: 156px
             .step_icon
                 display: flex
+                color: red
                 background: #F7FCF0
                 width: 70px
                 height: 70px
@@ -767,6 +774,7 @@ section.steps
                 position: relative
                 transition: all .35s ease
                 img
+                    color: red
                     width: 28px
                 &:last-child
                     &::before
@@ -786,9 +794,20 @@ section.steps
                     display: flex
                     height: 120px
                     width: 120px
-                    background: $accent
+                    background: #91CE28
                     img
                         width: 40px
+
+section.steps .steps_wrapper h1.coordinate_nurse_title
+    font-size: 24px
+    line-height: 1.2
+
+
+#move_left
+    transform: rotate(90deg) scale(1.5)
+
+#move_right
+    transform: rotate(270deg) scale(1.5)
 
 @media (max-width: 1200px)
 
