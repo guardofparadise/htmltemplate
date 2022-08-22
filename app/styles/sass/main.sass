@@ -330,7 +330,7 @@ a.bright_cta
         text-transform: uppercase
         margin-bottom: 0
         color: $accent
-        transition: .3s
+        transition: color .3s ease
         &::before
             content: ''
             position: absolute
@@ -351,7 +351,7 @@ a.bright_cta
         border-right: 2px solid #595959
         border-bottom: 2px solid #595959
         transform: rotate(45deg) translateX(-45%)
-        transition: .2s ease-in-out
+        transition: transform .2s ease-in-out
         display: none
 
     &__select
@@ -366,16 +366,17 @@ a.bright_cta
         transform: scaleY(0)
         transform-origin: top
         font-weight: 300
-        transition: .2s ease-in-out
+        transition: transform .2s ease-in-out
         padding-left: 0
 
     &__select-option 
-        padding: 20px
         background-color: #fff
         border-radius: 10px
         border-bottom: 1px solid #d6d6d6
-        transition: .3s
+        transition: background-color .3s ease
         a
+            padding: 20px
+            display: flex
             text-decoration: none
             color: $textcolor
 
