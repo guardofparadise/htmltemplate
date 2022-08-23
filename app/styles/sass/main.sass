@@ -99,15 +99,15 @@
     display: flex
     justify-content: space-between
     .card_button_download
-        min-width: 45px
+        min-width: 44px
         display: flex
         align-items: center
         justify-content: center
     .card_button_special
         max-width: unset
+        font-family: inter-medium, sans-serif
         flex: 4
         strong
-            margin-left: 5px
             font-family: inter-bold,sans-serif
             padding: 2px 6px
             background-color: #6CAB00
@@ -266,9 +266,9 @@ a.bright_cta
     font-weight: normal
 
 .menu-bg, #menu
-    top: 0!important
+    top: -60px!important
     right: 15px!important
-    position: fixed!important
+    position: absolute!important
 
 .menu-bg
     z-index: 1
@@ -328,7 +328,6 @@ a.bright_cta
         box-shadow: 1px 1px 2px rgba(170, 177, 204, 0.5), -1px -1px 2px #FFFFFF
         border-radius: 10px
         font-size: 14px
-        text-transform: uppercase
         margin-bottom: 0
         color: $accent
         transition: color .3s ease
@@ -386,6 +385,7 @@ a.bright_cta
 
 
 .myinspections_tables_wrapper
+    font-family: inter-regular, sans-serif
     padding: 0 50px
     .table_preview_data
         background-color: #F7FCF0
@@ -441,7 +441,7 @@ a.bright_cta
     opacity: 0
     visibility: hidden
     height: 0
-    transition: all .45s ease
+    transition: transform .45s ease, height .45s ease, opacity .45s ease
     transform: translateY(-50px)
     &.showcase_info
         transform: translateY(0px)
@@ -645,6 +645,7 @@ a.bright_cta
         flex-direction: column-reverse
         label
             margin-bottom: 15px
+            font-family: inter-regular, sans-serif
 
         input
             max-width: 100%
@@ -674,6 +675,7 @@ a.bright_cta
             display: flex
             flex-direction: column-reverse
             label
+                font-family: inter-regular, sans-serif
                 margin-bottom: 15px
             input
                 max-width: 330px
@@ -730,18 +732,24 @@ a.bright_cta
         &::before
             display: none
 
+.form-group label
+    font-family: inter-regular, sans-serif
+    
 // STEPS PAGE
 section.steps
     background: #e5e5e5
     padding: 90px 15px
+    .cta:disabled
+        border-radius: 4px
+        border: none
     .location_input
         max-width: 350px
-        border: 2px solid $accent
+        border: 0px solid $accent
         font-family: sans-regular, sans-serif
-        background: #F6FBFF
+        background: #F7FCF0
         color: #1D2A49
         border-radius: 7px
-        padding: 5px
+        padding: 12px
         margin-bottom: 20px
     .address-results
         display: none
@@ -782,7 +790,7 @@ section.steps
                     width: 28px
                 &:last-child
                     &::before
-                        display: none
+                        display: none!important
                 &::before
                     content: ''
                     top: 50%
@@ -793,7 +801,7 @@ section.steps
                     width: 17px
                     margin-top: -7px
                     position: absolute
-                    
+                    display: block!important
                 &.active
                     display: flex
                     height: 120px
@@ -812,6 +820,10 @@ section.steps .steps_wrapper h1.coordinate_nurse_title
 
 #move_right
     transform: rotate(270deg) scale(1.5)
+
+.myinspections_tables_wrapper .table_head>div
+    display: flex
+    align-items: flex-end
 
 @media (max-width: 1200px)
 
@@ -846,6 +858,11 @@ section.steps .steps_wrapper h1.coordinate_nurse_title
             max-width: 45%
 
 @media (max-width: 768px)
+    .card_button_special
+        strong
+            margin-left: 5px
+    .change .bar
+        background-color: $accent!important
     .myinspections_tables_wrapper
         .table_info
             .table_row
@@ -908,6 +925,8 @@ section.steps .steps_wrapper h1.coordinate_nurse_title
             max-width: 100%
 
 @media (max-width: 576px)
+    .account_info_table_data
+        margin-bottom: 0
     .modal-wrapper
         width: 75%
     .rs_information_cards.myappointments_page
@@ -925,6 +944,8 @@ section.steps .steps_wrapper h1.coordinate_nurse_title
         padding: 15px
 
 @media (max-width: 425px)
+    .inspections_list .inspection_card ul li img
+        margin-left: 4px
     .myinspections_tables_wrapper .table_info.showcase_info
         min-width: 200px
     .appointment_data_table
